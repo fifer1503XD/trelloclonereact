@@ -25,7 +25,7 @@ export const eraseBoard = (boardId) => {
   return async(dispatch)=>{
       let response = await fetch(`https://trelloclonefelipe.herokuapp.com/boards/${boardId}/`,
       {
-        method: "DEL",
+        method: "DELETE",
       })
           let results = await response.json();
           console.log(results)
