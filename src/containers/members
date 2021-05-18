@@ -1,0 +1,12 @@
+       <div>{<p>members</p>}</div>
+    {boards.map((board)=>{
+      return(
+      board.members.map((members)=>{
+        console.log('members',members)
+        if (members ===idActive){
+          console.log('hay favorito')
+          return(<Board title={board.name} description={board.description} id={board.id}/>)
+      }
+      }
+      )
+    )})}
