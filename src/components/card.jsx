@@ -14,7 +14,7 @@ const Card = (props) => {
     }
     const [comments, setComments] = useState('');
     useEffect(async()=>{
-        let response = await fetch(`https://trelloclonefelipe.herokuapp.com/${props.id}/comments/`)
+        let response = await fetch(`https://trelloclonefelipe.herokuapp.com/cards/${props.id}/comments/`)
         let results = await response.json();
          setComments(results.length)
     },[comments])
