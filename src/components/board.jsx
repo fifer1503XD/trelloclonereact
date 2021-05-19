@@ -20,12 +20,9 @@ export default function  Board (props)  {
 
     }
     return (
-        <div className="board">
-        <div  onClick={()=>(click(props.id))} >
-            <div className="tittle rem1">{props.title.charAt(0).toUpperCase()+props.title.toLowerCase().slice(1)}</div>
-            
-        </div>
-        <div><FontAwesomeIcon icon={faTrash}onClick={()=>{erase()}} /></div>
+        <div className="board" onClick={()=>(click(props.id))}>
+            <div className="tittle rem1 tittleBoard">{props.title.charAt(0).toUpperCase()+props.title.toLowerCase().slice(1)}</div>   
+            <div className="icono"><FontAwesomeIcon icon={faTrash}onClick={()=>{erase()}} /></div>
         </div>
         
       );

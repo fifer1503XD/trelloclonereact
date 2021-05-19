@@ -24,9 +24,6 @@ const Card = (props) => {
                 <div className="tittleList">
                 {props.title}
                 </div>
-                <div className="tittleList">
-                {props.description}
-                </div>
                <FontAwesomeIcon icon={faComments} onClick={()=>{commentsCard()}}/> {comments}
 
             </div>

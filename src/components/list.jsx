@@ -12,7 +12,7 @@ const List = (props) => {
                 <div className="tittleList">
                 {props.title}
                 </div>
-                <div>
+                <div className="containerCards">
                 {cards.map((card)=>{   
                     if (props.id === card.list_id){  
                     return(<Card title={card.name}  id={card.id} description={card.description}/>)

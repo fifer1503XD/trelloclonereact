@@ -54,7 +54,7 @@ const ContainerBoad = () => {
       </div>
         </div>
         <div className="espaciodetrabajo">
-          <div class="tittle 2 rem">Tus espacios de trabajo</div>
+          <div class="tittle 2 rem tittleEspacioTrabajo">Tus espacios de trabajo</div>
           <div className="containerBoards">
           {boards.map((board)=>{
           console.log('idactivo',idActive)

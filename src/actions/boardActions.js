@@ -21,18 +21,13 @@ return async(dispatch)=>{
         dispatch(setBoards(results))
       }
 }
-export const eraseBoard = (boardId) => {  
-  return async(dispatch)=>{
-      let response = await fetch(`https://trelloclonefelipe.herokuapp.com/boards/${boardId}/`,
-      {
-        method: "DELETE",
-      })
-          let results = await response.json();
-          console.log(results)
-          dispatch(getBoards)
-        }
-  }
-
+export const eraseBoard = (boardId) => { 
+    return async(dispatch)=>{ 
+    await fetch(`https://trelloclonefelipe.herokuapp.com/boards/${boardId}/`, { method: 'DELETE' });
+        dispatch(getBoards());
+}
+}
+  
     export function newBoard (nameb,description,owner){
       console.log(nameb,description)
       return async (dispatch)=>{
