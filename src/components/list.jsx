@@ -5,10 +5,6 @@ import "./components.css";
 import ModalNewCard from './ModalNewCard';
 const List = (props) => {
     const cards = useSelector(state => state.card.cards)
-    console.log(props.boardId)
-    const newList = (listId)=>{
-        console.log(listId)
-    }
     return ( 
         <>
         <div className="list">

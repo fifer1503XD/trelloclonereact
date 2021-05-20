@@ -14,7 +14,6 @@ const ContainerBoad = () => {
     const post =() =>{
       setPostShow(!postShow);
       dispatch(getUsers())
-      console.log(postShow)
     }
     let boards = useSelector(state => state.board.boards)
     let idActive = useSelector(state => state.auth.activeId)
@@ -57,7 +56,6 @@ const ContainerBoad = () => {
           <div class="tittle 2 rem tittleEspacioTrabajo">Tus espacios de trabajo</div>
           <div className="containerBoards">
           {boards.map((board)=>{
-          console.log('idactivo',idActive)
            if (board.owner ===idActive){
               return(<Board title={board.name} description={board.description} id={board.id}/>)
              }

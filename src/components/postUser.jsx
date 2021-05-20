@@ -7,8 +7,6 @@ const PostUser = () => {
   const refName = useRef('');
   const refDescription = useRef();
 
-    let users = useSelector(state => state.board.users)
-    console.log('users in post',users)
 
     const mysubmit=(event)=>{
       event.preventDefault();

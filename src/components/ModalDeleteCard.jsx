@@ -6,7 +6,6 @@ import { eraseCard, getCards } from '../actions/cardActions';
 import { useDispatch } from 'react-redux';
 const ModalDeleteCard = (props) => {
     const dispatch = useDispatch()
-  console.log(props.name)
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => {setShow(true)

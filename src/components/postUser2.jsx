@@ -18,21 +18,8 @@ class PostUser2 extends Component {
     alert(listMembers)
   }
     let users = useSelector(state => state.board.users)
-    console.log('users in post',users)
     const mysubmit=(event)=>{
       event.preventDefault();
-      // console.log(refName.current.value)
-      // console.log(refDescription.current.value)
-      // console.log(refDateCreation.current.value)
-      console.log(refVisibility)
-      // console.log(refMembers.current.value)
-      
-
-      // dispatch(newBoard(refName.current.value,
-      //   refDescription.current.value,
-      //   refDateCreation.current.value,
-      //   refVisibility.current.value,
-      //   refMembers.current.value))
     }  
         return ( 
             <div>

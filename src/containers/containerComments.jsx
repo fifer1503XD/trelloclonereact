@@ -5,7 +5,6 @@ const ContainerComments = () => {
     return( 
         <div className= "containerLists">
             {comments.map((comment)=>{
-                console.log(comment)
                 let{message,id,owner}=comment   
                 return(<Comment message={message}  id={id} owner={owner}/>)
             }

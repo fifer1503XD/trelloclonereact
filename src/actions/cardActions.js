@@ -21,7 +21,6 @@ export const setComments = (cardObj) => {
     return async(dispatch)=>{
         let response = await fetch(`https://trelloclonefelipe.herokuapp.com/boards/${boardId}/cards/`)
             let results = await response.json();
-            console.log(results)
             dispatch(setCards(results))
           }
     }
@@ -46,8 +45,7 @@ export const getCard = (cardId) => {
     }
 
     export function newCard (newcard,boardId){
-        let {name,description,list_id,owner,expiration_date,}= newcard
-        console.log(boardId)
+        let {name,description,list_id,owner,expiration_date,}= newcard)
         return async (dispatch)=>{
         try {
         let response = await fetch(`https://trelloclonefelipe.herokuapp.com/cards/`, {
@@ -63,7 +61,6 @@ export const getCard = (cardId) => {
               })
           });
           let results = await response.json();
-          console.log(results)
           dispatch(getCards(boardId))
           return results;
         } catch (error) {

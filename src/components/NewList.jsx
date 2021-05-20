@@ -4,10 +4,6 @@ import {useDispatch,useSelector} from 'react-redux'
 import "./components.css";
 import ModalNewList from './ModalNewList';
 const NewList = (props) => {
-    console.log(props.boardId)
-    const newList = (listId)=>{
-        console.log(listId)
-    }
     return ( 
         <>
         <div className="list">

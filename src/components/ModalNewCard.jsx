@@ -6,7 +6,6 @@ import {faPlusCircle} from '@fortawesome/free-solid-svg-icons'
 import PostCard from './PostCard';
 import { getCards } from '../actions/cardActions';
 const ModalNewCard = (props) => {
-  console.log(props.boardId)
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => {setShow(true)

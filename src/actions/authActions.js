@@ -12,7 +12,6 @@ export const idUserActive = (userObj) => {
 }
     
 export function loginUser (email,password){
-      console.log(email,password)
   return async (dispatch)=>{
       return new Promise(async(resolve, reject) => {
         try {
@@ -50,12 +49,10 @@ export function loginUser (email,password){
       
   
     export function getUserId (email){
-      console.log('tipo email',typeof(email))
       return async (dispatch)=>{
               try {
                     let response = await fetch(`https://trelloclonefelipe.herokuapp.com/users/`);
                     let results = await response.json();
-                    console.log('results get users',results);
                     const userid = results.filter(user=>user.email===email)
                     dispatch(idUserActive(userid[0].id))
                     return userid;

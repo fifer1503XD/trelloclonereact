@@ -22,7 +22,6 @@ const getBoards = () => {
 return async(dispatch)=>{
     let response = await fetch(`https://trelloclonefelipe.herokuapp.com/boards/`)
         let results = await response.json();
-        console.log(results)
         dispatch(setBoards(results))
       }
 }
@@ -34,7 +33,6 @@ export const eraseBoard = (boardId) => {
 }
   
     export function newBoard (nameb,description,owner){
-      console.log(nameb,description)
       return async (dispatch)=>{
           return new Promise(async(resolve, reject) => {
       try {
@@ -54,7 +52,6 @@ export const eraseBoard = (boardId) => {
           )
         });
         let results = await response.json();
-        console.log(results)
         dispatch(getBoards());
         dispatch(getUsers());
         return results;
@@ -85,7 +82,6 @@ export const eraseBoard = (boardId) => {
           )
         });
         let results = await response.json();
-        console.log(results)
         return results;
       };
       
