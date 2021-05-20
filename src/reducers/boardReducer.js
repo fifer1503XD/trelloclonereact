@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
     boards: [],
-    users: []
+    users: [],
+    boardActive:""
 }
 
 const boardReducer = (prevState = INITIAL_STATE, action) => {
@@ -10,6 +11,8 @@ const boardReducer = (prevState = INITIAL_STATE, action) => {
             return {...prevState, boards: action.userObj};
         case "SET_USERS":
             return {...prevState, users: action.userObj};
+            case "SET_BOARD_ACTIVE":
+                return {...prevState, boardActive: action.userObj};
         default:
             return prevState;
     }

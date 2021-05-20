@@ -6,7 +6,12 @@ export const setBoards = (userObj) => {
         userObj
     }
 }
-
+export const setBoardActive = (userObj) => {
+  return {
+      type: "SET_BOARD_ACTIVE",
+      userObj
+  }
+}
 export const setUsers = (userObj) => {
     return {
         type: "SET_USERS",

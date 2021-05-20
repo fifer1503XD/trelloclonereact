@@ -3,6 +3,8 @@ import {useSelector} from 'react-redux'
 import "../components/components.css";
 import Navbar from '../components/navbar';
 import PostList from '../components/postList';
+import ModalNewList from '../components/ModalNewList';
+import NewList from '../components/NewList';
 const ContainerList = () => {
     const Lists = useSelector(state => state.list.lists)
     return( 
@@ -19,7 +21,9 @@ const ContainerList = () => {
                      )
 
             }
+            <NewList />
         </div>
+        
         </div>
         
 

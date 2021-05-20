@@ -18,7 +18,6 @@ export const setComments = (cardObj) => {
     }
 }
  export const getCards = (boardId) => {  
-     alert('entro')
     return async(dispatch)=>{
         let response = await fetch(`https://trelloclonefelipe.herokuapp.com/boards/${boardId}/cards/`)
             let results = await response.json();
@@ -72,23 +71,10 @@ export const getCard = (cardId) => {
           } 
         }
         }
-        
-    // export function newCard (newcard,boardId){
-    //     let {name,description,list_id,owner,expiration_date}= newcard
-    //     console.log(name,description,list_id,owner,expiration_date)
-    //     return async (dispatch)=>{
-    //     await axios.post('https://trelloclonefelipe.herokuapp.com/cards/', {
-    //         params: {
-    //             "name": name,
-    //             "description": description,
-    //             "list_id": list_id,
-    //             "owner":owner,
-    //             "expiration_date":expiration_date
-    //         }
-    //       }).then(response => {
-    //         let results = response.data;
-    //         console.log(results)
-    //     }).catch(e => {
-    //         console.log(e);
-    //     })
-    //     }}
+
+        export const eraseCard = (cardId,boardId) => { 
+            return async(dispatch)=>{ 
+            await fetch(`https://trelloclonefelipe.herokuapp.com/cards/${cardId}/`, { method: 'DELETE' });
+                dispatch(getCards(boardId));
+        }
+        }

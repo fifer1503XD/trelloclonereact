@@ -17,4 +17,25 @@ export const setLists = (userObj) => {
     }
     export  default getLists ;    
 
-
+    export function newList (name,boardId){
+        console.log(boardId)
+        return async (dispatch)=>{
+        try {
+        let response = await fetch(`https://trelloclonefelipe.herokuapp.com/lists/`, {
+            method: "POST",
+            headers: {"Content-type": "application/json"},
+            body: JSON.stringify(
+              {
+                "name": name,
+                "board_id": boardId,
+              })
+          });
+          let results = await response.json();
+          console.log(results)
+          dispatch(getLists(boardId))
+          return results;
+        } catch (error) {
+            console.log(error.message);
+          } 
+        }
+        }

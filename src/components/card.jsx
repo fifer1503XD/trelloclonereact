@@ -4,7 +4,9 @@ import {useDispatch} from 'react-redux'
 import "./components.css";
 import {FontAwesomeIcon} from'@fortawesome/react-fontawesome'
 import {faComments} from '@fortawesome/free-solid-svg-icons'
+
 import { getComments } from '../actions/cardActions';
+import ModalDeleteCard from './ModalDeleteCard';
 const Card = (props) => {
     const dispatch = useDispatch()
     const history = useHistory();
@@ -25,7 +27,8 @@ const Card = (props) => {
                 {props.title}
                 </div>
                <FontAwesomeIcon icon={faComments} onClick={()=>{commentsCard()}}/> {comments}
-
+               <ModalDeleteCard name={props.title} cardId={props.id} boardId={props.boardId}/>
+               
             </div>
         </div>
         </> );
