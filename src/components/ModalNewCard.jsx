@@ -10,6 +10,7 @@ const ModalNewCard = (props) => {
     const handleClose = () => setShow(false);
     const handleShow = () => {setShow(true)
       getCards(props.boardId)}
+      
     return ( 
         <>
         <FontAwesomeIcon icon={faPlusCircle} onClick={handleShow} />

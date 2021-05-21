@@ -7,7 +7,7 @@ export const setLists = (userObj) => {
     }
 }
 
- const getLists = (boardId) => {  
+ export const getLists = (boardId) => {  
     return async(dispatch)=>{
         let response = await fetch(`https://trelloclonefelipe.herokuapp.com/boards/${boardId}/lists`)
             let results = await response.json();
@@ -37,3 +37,10 @@ export const setLists = (userObj) => {
           } 
         }
         }
+
+  export const eraseList = (listId,boardId) => { 
+    return async(dispatch)=>{ 
+      await fetch(`https://trelloclonefelipe.herokuapp.com/lists/${listId}/`, { method: 'DELETE' });
+      dispatch(getLists(boardId));
+      }
+      }      

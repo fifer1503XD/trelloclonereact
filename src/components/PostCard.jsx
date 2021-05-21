@@ -23,11 +23,11 @@ const PostCard = (props) => {
         <form noValidate onSubmit={mysubmit}>
         <div class="form-group">
             <label for="Name">Name</label>
-            <input ref={refName} type="text" class="form-control" id="name" placeholder="BOARD NAME"/>
+            <input ref={refName} type="text" class="form-control" id="name" placeholder="Card name"/>
         </div>
         <div class="form-group">
             <label for="Name">Description</label>
-            <input ref={refDescription} type="text" class="form-control" id="name" placeholder="BOARD NAME"/>
+            <input ref={refDescription} type="text" class="form-control" id="name" placeholder="Card Description"/>
         </div>
         <div class="form-group">
         <label for="start">Fecha de terminacion : </label>

@@ -15,7 +15,7 @@ const PostList = (props) => {
         <form noValidate onSubmit={mysubmit}>
         <div class="form-group">
             <label for="Name">Name</label>
-            <input ref={refName} type="text" class="form-control" id="name" placeholder="BOARD NAME"/>
+            <input ref={refName} type="text" class="form-control" id="name" placeholder="List Name"/>
         </div>
         <button type="submit" class="btn btn-primary">Agregar</button>
     </form>

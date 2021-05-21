@@ -45,7 +45,7 @@ export const getCard = (cardId) => {
     }
 
     export function newCard (newcard,boardId){
-        let {name,description,list_id,owner,expiration_date,}= newcard)
+        let {name,description,list_id,owner,expiration_date,}= newcard
         return async (dispatch)=>{
         try {
         let response = await fetch(`https://trelloclonefelipe.herokuapp.com/cards/`, {
