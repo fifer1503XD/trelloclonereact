@@ -1,7 +1,7 @@
 import React from 'react';
 import "./components.css";
 import {useSelector} from 'react-redux'
-const Comment = (props) => {
+const NewComment = (props) => {
     const users = useSelector(state => state.board.users)
     let owner=users.find((user =>user.id===props.owner))
     let {first_name,last_name}=owner
@@ -17,4 +17,4 @@ const Comment = (props) => {
     
           )
  }
-export default Comment;
+export default NewComment;

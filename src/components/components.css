@@ -81,7 +81,13 @@
 }
 .comment{
     border: solid 2px;
-    margin: 5%; 
+    background: rgb(244, 240, 255);
+    box-shadow: 6px 8px 7px 3px rgb(76 142 10 / 61%);
+    border-radius: 5px;
+    font-family: 'Lobster', cursive;
+    margin: 2%;
+    padding-left: 1%;
+    
 }
 .containerFormulario{
     background-image: url('https://static.vecteezy.com/system/resources/previews/001/988/909/non_2x/seamless-watercolor-fresh-green-background-with-text-space-illustration-environmentally-conscious-image-with-plants-and-sunlight-horizontally-repeatable-free-vector.jpg');

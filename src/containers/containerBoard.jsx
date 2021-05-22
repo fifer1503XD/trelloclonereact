@@ -4,6 +4,7 @@ import { useEffect,useState} from 'react'
 import {setBoards,setUsers,getUsers} from'../actions/boardActions'
 import axios from 'axios';
 import PostUser from "../components/postUser";
+import NewBoard from "../components/NewBoard"
 import Login from "../components/login";
 import Navbar from "../components/navbar";
 import "../components/components.css";
@@ -60,6 +61,7 @@ const ContainerBoad = () => {
               return(<Board title={board.name} description={board.description} id={board.id}/>)
              }
           })}
+          <NewBoard/>
           </div>
         
         </div>
