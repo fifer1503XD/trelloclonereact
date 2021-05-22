@@ -1,5 +1,3 @@
-import getCards from "./cardActions"
-
 export const setBoards = (userObj) => {
     return {
         type: "SET_BOARDS",

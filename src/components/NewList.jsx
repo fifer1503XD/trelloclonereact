@@ -1,8 +1,6 @@
-import React,{useEffect} from 'react';
-import Card from './card';
-import {useDispatch,useSelector} from 'react-redux'
+import React from 'react';
 import "./components.css";
-import ModalNewList from './ModalNewList';
+import ModalNewList from './Modals/ModalNewList';
 const NewList = (props) => {
     return ( 
         <>

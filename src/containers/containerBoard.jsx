@@ -1,11 +1,9 @@
 import Board from "../components/board"
 import {useDispatch,useSelector} from "react-redux";
 import { useEffect,useState} from 'react'
-import {setBoards,setUsers,getUsers} from'../actions/boardActions'
-import axios from 'axios';
+import getBoards, {getUsers} from'../actions/boardActions'
 import PostUser from "../components/postUser";
 import NewBoard from "../components/NewBoard"
-import Login from "../components/login";
 import Navbar from "../components/navbar";
 import "../components/components.css";
 
@@ -20,24 +18,9 @@ const ContainerBoad = () => {
     let idActive = useSelector(state => state.auth.activeId)
     
     useEffect( ()=> {
-        try{axios.get(`https://trelloclonefelipe.herokuapp.com/boards/`)
-        .then(res => {
-          const results = res.data;
-          dispatch(setBoards(results))
-          dispatch(getUsers())
-        })
-        }catch(error){
-          alert(error.message);
-        }
-        try{axios.get(`https://trelloclonefelipe.herokuapp.com/Users/`)
-        .then(res => {
-          const results = res.data;
-          dispatch(setUsers(results))
-        })
-        }catch(error){
-          alert(error.message);
-        }
-      },[setBoards]);
+        dispatch(getBoards())
+        dispatch(getUsers())
+      },[dispatch]);
     return (
     <div className="principal"> 
       <div className="nav-bar">
@@ -54,12 +37,10 @@ const ContainerBoad = () => {
       </div>
         </div>
         <div className="espaciodetrabajo">
-          <div class="tittle 2 rem tittleEspacioTrabajo">Tus espacios de trabajo</div>
+          <div className="tittle 2 rem tittleEspacioTrabajo">Tus espacios de trabajo</div>
           <div className="containerBoards">
-          {boards.map((board)=>{
-           if (board.owner ===idActive){
-              return(<Board title={board.name} description={board.description} id={board.id}/>)
-             }
+          {boards.filter((board=>board.owner ===idActive)).map((board,i)=>{
+              return(<Board key={i} title={board.name} description={board.description} id={board.id}/>)
           })}
           <NewBoard/>
           </div>

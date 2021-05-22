@@ -1,4 +1,4 @@
-import React, {useRef,useState}from 'react';
+import React, {useRef}from 'react';
 import { newBoard } from '../actions/boardActions';
 import {useDispatch,useSelector} from "react-redux";
 const PostUser = () => {
@@ -18,16 +18,16 @@ const PostUser = () => {
 
         <form noValidate onSubmit={mysubmit}>
       
-        <div class="form-group">
-            <label for="Name">Name</label>
-            <input ref={refName} type="text" class="form-control" id="name" placeholder="BOARD NAME"/>
+        <div className="form-group">
+            <label htmlFor="Name">Name</label>
+            <input ref={refName} type="text" className="form-control" id="name" placeholder="BOARD NAME"/>
         </div>
-        <div class="form-group">
-            <label for="Description">Description</label>
-            <input ref={refDescription} type="text" class="form-control" id="description" placeholder="DESCRIPTION"/>
+        <div className="form-group">
+            <label htmlFor="Description">Description</label>
+            <input ref={refDescription} type="text" className="form-control" id="description" placeholder="DESCRIPTION"/>
         </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Submit</button>
+      <div className="form-group">
+        <button type="submit" className="btn btn-primary">Submit</button>
       </div>
     </form>
     </div>

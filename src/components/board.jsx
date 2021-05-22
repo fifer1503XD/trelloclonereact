@@ -1,7 +1,7 @@
 import React from 'react';
 import "./components.css";
 import getLists from '../actions/listActions'
-import getBoards, {eraseBoard, setBoardActive} from '../actions/boardActions'
+import {eraseBoard, setBoardActive} from '../actions/boardActions'
 import {useDispatch} from 'react-redux'
 import { useHistory } from "react-router-dom";
 import {FontAwesomeIcon} from'@fortawesome/react-fontawesome'

@@ -2,16 +2,17 @@ import React, { useState } from 'react';
 import {Modal,Button} from 'react-bootstrap'
 import {FontAwesomeIcon} from'@fortawesome/react-fontawesome'
 import {faTrashRestore} from '@fortawesome/free-solid-svg-icons'
-import { eraseCard, getCards } from '../actions/cardActions';
-import { useDispatch } from 'react-redux';
-const ModalDeleteCard = (props) => {
+import { useDispatch, useSelector } from 'react-redux';
+import { eraseComment, getComments } from '../../actions/commentActions';
+const ModalDeleteComment = ({commentId}) => {
     const dispatch = useDispatch()
+    const cardId = useSelector(state => state.card.cardActive.id)
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => {setShow(true)
-      getCards(props.boardId)}
+      getComments(cardId)}
     const deleteClick = ()=>{
-        dispatch(eraseCard(props.cardId, props.boardId))
+        dispatch(eraseComment(commentId,cardId))
         handleClose()
     }   
      return ( 
@@ -19,9 +20,9 @@ const ModalDeleteCard = (props) => {
         <FontAwesomeIcon className="iconDelete" icon={faTrashRestore} onClick={handleShow} />
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Borrar Card</Modal.Title>
+            <Modal.Title>Borrar Comentario</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Estas seguro de borrar la card {props.name}</Modal.Body>
+          <Modal.Body>Estas seguro de borrar el comentario</Modal.Body>
           <Modal.Footer>
           <Button variant="secondary" onClick={()=>{deleteClick()}}>
             Borrar
@@ -35,4 +36,4 @@ const ModalDeleteCard = (props) => {
      );
 }
  
-export default ModalDeleteCard;
+export default ModalDeleteComment;

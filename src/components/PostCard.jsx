@@ -9,7 +9,7 @@ const PostCard = (props) => {
     const refDescription = useRef('');
     const refDate = useRef('');
     const mysubmit=(event)=>{
-        if (refName.current.value == "" || refDescription.current.value == "" ||refDate.current.value == "" ){
+        if (refName.current.value === "" || refDescription.current.value === "" ||refDate.current.value === "" ){
             alert ('Datos requeridos')
             event.preventDefault();
         }
@@ -30,20 +30,20 @@ const PostCard = (props) => {
     <div>
          {show ? 
         <form noValidate onSubmit={mysubmit}>
-        <div class="form-group">
-            <label for="Name">Name</label>
-            <input ref={refName} type="text" class="form-control" id="name" placeholder="Card name"/>
+        <div className="form-group">
+            <label htmlFor="Name">Name</label>
+            <input ref={refName} type="text" className="form-control" id="name" placeholder="Card name"/>
         </div>
-        <div class="form-group">
-            <label for="Name">Description</label>
-            <input ref={refDescription} type="text" class="form-control" id="name" placeholder="Card Description"/>
+        <div className="form-group">
+            <label htmlFor="Name">Description</label>
+            <input ref={refDescription} type="text" className="form-control" id="name" placeholder="Card Description"/>
         </div>
-        <div class="form-group">
-        <label for="start">Fecha de terminacion : </label>
+        <div className="form-group">
+        <label htmlFor="start">Fecha de terminacion : </label>
         <input ref={refDate} type="date" id="start" name="trip-start"/>
         </div>
 
-        <button type="submit" class="btn btn-primary">Agregar</button>
+        <button type="submit" className="btn btn-primary">Agregar</button>
     </form> : 'Su card ha sido agregada con exito'}
     </div> );
 }

@@ -4,30 +4,31 @@ import {useDispatch} from 'react-redux'
 import "./components.css";
 import {FontAwesomeIcon} from'@fortawesome/react-fontawesome'
 import {faComments} from '@fortawesome/free-solid-svg-icons'
-
-import { getComments } from '../actions/cardActions';
-import ModalDeleteCard from './ModalDeleteCard';
-const Card = (props) => {
+import { getComments } from '../actions/commentActions';
+import ModalDeleteCard from './Modals/ModalDeleteCard';
+const Card = ({id,title,boardId},props) => {
     const dispatch = useDispatch()
     const history = useHistory();
     const commentsCard = ()=>{
-        dispatch(getComments(props.id))
+        dispatch(getComments(id))
         history.push("/comment")
     }
     const [comments, setComments] = useState('');
-    useEffect(async()=>{
-        let response = await fetch(`https://trelloclonefelipe.herokuapp.com/cards/${props.id}/comments/`)
-        let results = await response.json();
+    useEffect(()=>{
+        async function fetchMyAPI(){
+        let response = await fetch(`https://trelloclonefelipe.herokuapp.com/cards/${id}/comments/`)
+        let results =  await response.json();
          setComments(results.length)
-    },[comments])
+    }
+    fetchMyAPI();})
     return ( <>
         <div className="cards">
             <div >
                 <div className="tittleList">
-                {props.title}
+                {title}
                 </div>
                <FontAwesomeIcon icon={faComments} onClick={()=>{commentsCard()}}/> {comments}
-               <ModalDeleteCard name={props.title} cardId={props.id} boardId={props.boardId}/>
+               <ModalDeleteCard name={title} cardId={id} boardId={boardId}/>
                
             </div>
         </div>

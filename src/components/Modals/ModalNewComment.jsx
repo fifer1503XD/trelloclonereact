@@ -1,24 +1,24 @@
-
 import React, { useState } from 'react';
 import {Modal,Button} from 'react-bootstrap'
 import {FontAwesomeIcon} from'@fortawesome/react-fontawesome'
 import {faPlusCircle} from '@fortawesome/free-solid-svg-icons'
-import PostCard from './PostCard';
-import { getCards } from '../actions/cardActions';
-const ModalNewCard = (props) => {
+import {useSelector} from 'react-redux'
+import PostComment from '../PostComment';
+import { getComments } from '../../actions/commentActions';
+const ModalNewComment = (props) => {
+  const cardActive = useSelector(state => state.card.cardActive)
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => {setShow(true)
-      getCards(props.boardId)}
-      
+      getComments(cardActive)}
     return ( 
         <>
         <FontAwesomeIcon icon={faPlusCircle} onClick={handleShow} />
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Agregar nueva Card</Modal.Title>
+            <Modal.Title>Agregar nuevo commentario</Modal.Title>
           </Modal.Header>
-          <Modal.Body><PostCard listId={props.listId} boardId={props.boardId}/></Modal.Body>
+          <Modal.Body><PostComment /></Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Close
@@ -29,4 +29,4 @@ const ModalNewCard = (props) => {
      );
 }
  
-export default ModalNewCard;
+export default ModalNewComment;

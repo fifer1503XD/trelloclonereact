@@ -2,7 +2,7 @@ import React, {useRef}from 'react';
 import { Form,Button } from 'react-bootstrap'
 import {  useHistory } from "react-router-dom";
 import { getUserId, loginUser, setActiveSession } from '../actions/authActions';
-import {useDispatch , useSelector} from "react-redux";
+import {useDispatch } from "react-redux";
 const Login = () => {
   
   const dispatch = useDispatch();

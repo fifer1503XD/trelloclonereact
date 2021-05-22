@@ -1,4 +1,3 @@
-import axios from 'axios';
 export const setCards = (cardObj) => {
     return {
         type: "SET_CARDS",
@@ -11,12 +10,7 @@ export const setCardActive = (cardObj) => {
         cardObj
     }
 }
-export const setComments = (cardObj) => {
-    return {
-        type: "SET_COMMENTS",
-        cardObj
-    }
-}
+
  export const getCards = (boardId) => {  
     return async(dispatch)=>{
         let response = await fetch(`https://trelloclonefelipe.herokuapp.com/boards/${boardId}/cards/`)
@@ -25,16 +19,6 @@ export const setComments = (cardObj) => {
           }
     }
  
-
-
-export const getComments =(cardId)=>{
-    return async(dispatch)=>{
-        let response = await fetch(`https://trelloclonefelipe.herokuapp.com/cards/${cardId}/comments/`)
-        let results = await response.json();
-        await dispatch(setComments(results))
-        await dispatch(getCard(cardId))
-    }
-}
 
 export const getCard = (cardId) => {  
     return async(dispatch)=>{

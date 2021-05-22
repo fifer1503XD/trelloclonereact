@@ -1,22 +1,23 @@
 import React, {useRef,useState}from 'react';
-import { newList } from '../actions/listActions';
 import {useDispatch,useSelector} from 'react-redux'
+import { newComment } from '../actions/commentActions';
 
-const PostList = (props) => {
+const PostComment = (props) => {
     const [show, setShow] = useState(true);
-    const boardActive = useSelector(state => state.board.boardActive)
+    const cardActive = useSelector(state => state.card.cardActive)
+    const owner = useSelector(state=> state.auth.activeId)
     const dispatch = useDispatch()
-    const refName = useRef('');
+    const refMessage = useRef('');
 
 const mysubmit=(event)=>{
-  if (refName.current.value === ""){
+  if (refMessage.current.value === ""){
         event.preventDefault();
         alert ('Datos requeridos')
         
         }
         else{
         event.preventDefault();
-        dispatch(newList(refName.current.value,boardActive))
+        dispatch(newComment(refMessage.current.value,cardActive,owner))
         setShow(false)
         }
       } 
@@ -24,12 +25,12 @@ const mysubmit=(event)=>{
     <div>
         {show ? <form noValidate onSubmit={mysubmit}>
          <div className="form-group">
-         <label htmlFor="Name">Name</label>
-        <input ref={refName} type="text" className="form-control" id="name" placeholder="List Name"/>
+         <label htmlFor="Name">Mensaje</label>
+        <input ref={refMessage} type="text" className="form-control" id="name" placeholder="Message"/>
         </div>
          <button type="submit" className="btn btn-primary">Agregar</button>  
-    </form> : 'Su lista ha sido agregada con exito!'}
+    </form> : 'Su comentario ha sido agregada con exito!'}
     </div> );
 }
  
-export default PostList
+export default PostComment

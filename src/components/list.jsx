@@ -1,13 +1,10 @@
-import React,{useEffect} from 'react';
+import React from 'react';
 import Card from './card';
-import {useDispatch,useSelector} from 'react-redux'
+import {useSelector} from 'react-redux'
 import "./components.css";
-import ModalNewCard from './ModalNewCard';
-import {FontAwesomeIcon} from'@fortawesome/react-fontawesome'
-import {faTrash} from '@fortawesome/free-solid-svg-icons'
-import ModalDeleteList from './ModalDeleteList';
+import ModalNewCard from './Modals/ModalNewCard';
+import ModalDeleteList from './Modals/ModalDeleteList';
 const List = (props) => {
-    console.log(props.title)
     const cards = useSelector(state => state.card.cards)
     return ( 
         <>
@@ -19,14 +16,13 @@ const List = (props) => {
                 {props.title}
                 </div>
                 <div className="containerCards">
-                {cards.map((card)=>{   
-                    if (props.id === card.list_id){  
-                    return(<Card title={card.name}  id={card.id} description={card.description} boardId={props.boardId}/>)
-                    }
-            }
-                     )
-
-            }
+               
+                {cards.filter((card=>props.id === card.list_id))
+                    .map((card,i) =>{
+                    return(<Card key={i} title={card.name}  id={card.id} description={card.description} boardId={props.boardId}/>)
+                    
+    }
+                 ) }
                 </div>
                 <img src="" alt=""/>
 
