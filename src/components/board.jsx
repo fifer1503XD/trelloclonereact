@@ -5,6 +5,7 @@ import {eraseBoard, setBoardActive} from '../actions/boardActions'
 import {useDispatch} from 'react-redux'
 import { useHistory } from "react-router-dom";
 import {FontAwesomeIcon} from'@fortawesome/react-fontawesome'
+import 'animate.css/animate.css'
 import {faTrash} from '@fortawesome/free-solid-svg-icons'
 export default function  Board (props)  {
     const erase = ()=>
@@ -21,7 +22,7 @@ export default function  Board (props)  {
 
     }
     return (
-        <div className="board" >
+        <div className="board animate__animated animate__bounce animate__delay-0.5s" >
             <div className="tittle rem1 tittleBoard" onClick={()=>(click(props.id))}>{props.title.charAt(0).toUpperCase()+props.title.toLowerCase().slice(1)}</div>   
             <div className="icono"><FontAwesomeIcon icon={faTrash}onClick={()=>{erase()}} /></div>
         </div>

@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Card from './card';
 import {useSelector} from 'react-redux'
 import "./components.css";
 import ModalNewCard from './Modals/ModalNewCard';
 import ModalDeleteList from './Modals/ModalDeleteList';
 const List = (props) => {
-    const cards = useSelector(state => state.card.cards)
+    let cards = useSelector(state => state.card.cards)
     return ( 
         <>
         <div className="list">
@@ -16,7 +16,6 @@ const List = (props) => {
                 {props.title}
                 </div>
                 <div className="containerCards">
-               
                 {cards.filter((card=>props.id === card.list_id))
                     .map((card,i) =>{
                     return(<Card key={i} title={card.name}  id={card.id} description={card.description} boardId={props.boardId}/>)
@@ -29,7 +28,7 @@ const List = (props) => {
             </div>
         </div>
         </>
-     );
+        );
 }
  
 export default List
