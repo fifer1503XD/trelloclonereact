@@ -11,7 +11,8 @@ export const setCardActive = (cardObj) => {
     }
 }
 
- export const getCards = (boardId) => {  
+ export const getCards = (boardId) => { 
+     console.log(boardId) 
     return async(dispatch)=>{
         let response = await fetch(`https://trelloclonefelipe.herokuapp.com/boards/${boardId}/cards/`)
             let results = await response.json();

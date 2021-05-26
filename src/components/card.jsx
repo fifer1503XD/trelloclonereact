@@ -6,7 +6,9 @@ import {FontAwesomeIcon} from'@fortawesome/react-fontawesome'
 import {faComments} from '@fortawesome/free-solid-svg-icons'
 import { getComments } from '../actions/commentActions';
 import ModalDeleteCard from './Modals/ModalDeleteCard';
-const Card = ({id,title,boardId},props) => {
+import { SortableElement } from "react-sortable-hoc";
+import { DragHandle } from '../actions/sorteableActions';
+const Card = SortableElement( ({id,title,boardId},props) => {
     const dispatch = useDispatch()
     const history = useHistory();
     const commentsCard = ()=>{
@@ -21,9 +23,10 @@ const Card = ({id,title,boardId},props) => {
          setComments(results.length)
     }
     fetchMyAPI();})
-    return ( <>
-        <div className="cards">
+    return ( 
+        <div className="cards" id={`${id}`}>
             <div >
+                <DragHandle  />
                 <div className="tittleList">
                 {title}
                 </div>
@@ -32,7 +35,7 @@ const Card = ({id,title,boardId},props) => {
                
             </div>
         </div>
-        </> );
-}
+        );
+})
  
 export default Card;
